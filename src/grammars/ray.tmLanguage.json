@@ -1,0 +1,228 @@
+{
+  "name": "ray",
+  "scopeName": "source.ray",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#punctuation"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "match": "\\b([A-Z][A-Za-z0-9_]*)\\b",
+      "name": "support.type.ray"
+    },
+    {
+      "match": "\\b([a-zA-Z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "name": "entity.name.function.ray"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.ray",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.ray",
+          "match": "\"(\\\\.|[^\\\"])*\""
+        },
+        {
+          "name": "string.quoted.single.ray",
+          "match": "'(?:\\\\.|[^\\'])'"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.numeric.ray",
+          "match": "\\b0x[0-9A-Fa-f_]+\\b"
+        },
+        {
+          "name": "constant.numeric.ray",
+          "match": "\\b[0-9][0-9_]*(?:\\.[0-9_]+)?(?:[eE][+-]?[0-9_]+)?\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.ray",
+          "match": "\\b(break|continue|else|for|if|loop|return|while)\\b"
+        },
+        {
+          "name": "keyword.declaration.ray",
+          "match": "\\b(fn|struct|record|trait|impl|type|extern|let|mut|where)\\b"
+        },
+        {
+          "name": "keyword.operator.arrow.ray",
+          "match": "->"
+        },
+        {
+          "name": "keyword.operator.range.ray",
+          "match": "\\.\\.\\.?"
+        },
+        {
+          "name": "keyword.operator.equality.ray",
+          "match": "==|!="
+        },
+        {
+          "name": "keyword.operator.comparison.ray",
+          "match": "<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.logical.ray",
+          "match": "&&|\\|\\|"
+        },
+        {
+          "name": "keyword.operator.assignment.compound.ray",
+          "match": "\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=|//=|\\*\\*="
+        },
+        {
+          "name": "keyword.operator.assignment.ray",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.arithmetic.ray",
+          "match": "\\+|-|\\*|/|%"
+        },
+        {
+          "name": "keyword.operator.bitwise.ray",
+          "match": "&|\\||\\^|~|<<|>>"
+        },
+        {
+          "name": "keyword.operator.unary.ray",
+          "match": "!"
+        },
+        {
+          "name": "keyword.operator.as.ray",
+          "match": "\\bas\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.ray",
+          "match": "\\b(bool|char|string|int|float|unit)\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.brackets.curly.ray",
+          "match": "[{}]"
+        },
+        {
+          "name": "punctuation.brackets.group.begin.ray",
+          "match": "\\("
+        },
+        {
+          "name": "punctuation.brackets.group.end.ray",
+          "match": "\\)"
+        },
+        {
+          "name": "punctuation.brackets.brackets.begin.ray",
+          "match": "\\["
+        },
+        {
+          "name": "punctuation.brackets.brackets.end.ray",
+          "match": "\\]"
+        },
+        {
+          "name": "punctuation.separator.comma.ray",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.colon.ray",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.terminator.statement.ray",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.accessor.dot.ray",
+          "match": "\\."
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "comment": "function definition",
+          "name": "meta.function.definition.ray",
+          "begin": "\\b(fn)\\s+((?:r#(?![Ss]elf|super))?[A-Za-z0-9_]+)((\\()|(<))",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.fn.ray"
+            },
+            "2": {
+              "name": "entity.name.function.ray"
+            },
+            "4": {
+              "name": "punctuation.brackets.round.ray"
+            },
+            "5": {
+              "name": "punctuation.brackets.angle.ray"
+            }
+          },
+          "end": "(\\{)|(;)",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.brackets.curly.ray"
+            },
+            "2": {
+              "name": "punctuation.semi.ray"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#functions"
+            },
+            {
+              "include": "#punctuation"
+            },
+            {
+              "include": "#strings"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "fileTypes": [
+    "ray"
+  ]
+}
