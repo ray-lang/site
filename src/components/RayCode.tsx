@@ -1,16 +1,16 @@
 "use client";
 
 import { highlightRay } from "@/lib/highlightRay";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { useTheme } from "./ThemeContext";
 
 export default function RayCode({ code }: { code: string }) {
   const [html, setHtml] = useState("");
-  const theme = useTheme();
-  
+  const { resolvedTheme } = useTheme();
+
   useEffect(() => {
-    highlightRay(code, theme).then(setHtml);
-  }, [code, theme]);
+    highlightRay(code, resolvedTheme === "dark" ? "github-dark" : "github-light").then(setHtml);
+  }, [code, resolvedTheme]);
 
   return <div dangerouslySetInnerHTML={{ __html: html }} />
 }

@@ -3,7 +3,7 @@
 import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type * as monaco from "monaco-editor";
 import Editor, { OnMount } from "@monaco-editor/react";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "next-themes";
 
 interface RunRequest {
   code: string;
@@ -87,7 +87,7 @@ export default function PlaygroundClient(): JSX.Element {
   const [stdout, setStdout] = useState<string>("");
   const [stderr, setStderr] = useState<string>("");
   const [running, setRunning] = useState(false);
-  const theme = useTheme();
+  const { resolvedTheme } = useTheme();
 
   // Create worker once
   useEffect(() => {
@@ -108,8 +108,8 @@ export default function PlaygroundClient(): JSX.Element {
   // Monaco mount callback
   const handleMount: OnMount = useCallback((editor, monacoInstance) => {
     registerRayLanguage(monacoInstance as typeof monaco);
-    monacoInstance.editor.setTheme(theme == "github-dark" ? "vs-dark" : "vs");
-  }, [theme]);
+    monacoInstance.editor.setTheme(resolvedTheme === "dark" ? "vs-dark" : "vs");
+  }, [resolvedTheme]);
 
   // Run button
   const run = useCallback(() => {
