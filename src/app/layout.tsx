@@ -24,8 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link
               href="/"
-              className="text-3xl font-bold"
-              style={{ fontFamily: "var(--font-barlow)" }}
+              className="font-barlow-800i text-3xl font-bold"
             >
               RAY
             </Link>

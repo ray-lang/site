@@ -1,12 +1,12 @@
-import RayCode from "@/components/RayCode";
 import Link from "next/link";
+
+import RayCode from "@/components/RayCode";
 
 export default function Home() {
   return (
     <section className="relative mx-auto max-w-5xl py-8">
       <h1
-        className="mb-4 text-8xl font-bold"
-        style={{ fontFamily: "var(--font-barlow)" }}
+        className="font-barlow-800i mb-4 text-8xl font-bold"
       >
         RAY
       </h1>
