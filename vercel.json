@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/install.sh",
-      "destination": "https://raw.githubusercontent.com/ray-lang/ray/main/install-ray.sh"
+      "destination": "https://raw.githubusercontent.com/ray-lang/ray/main/scriptsinstall-ray.sh"
     },
     {
       "source": "/install.ps1",
-      "destination": "https://raw.githubusercontent.com/ray-lang/ray/main/install-ray.ps1"
+      "destination": "https://raw.githubusercontent.com/ray-lang/ray/main/scripts/install-ray.ps1"
     }
   ]
 }
